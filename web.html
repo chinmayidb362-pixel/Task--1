@@ -1,0 +1,329 @@
+<!-- Save as index.html -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Task 1 — Basics of Web Development</title>
+
+  <!-- Simple CSS demonstrating colors, fonts, spacing, layout -->
+  <style>
+    :root{
+      --accent: #2b7a78;
+      --accent-2: #17252a;
+      --muted: #666;
+      --bg: #f7f9f9;
+      --card: #ffffff;
+      --radius: 12px;
+      --max-width: 1000px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: "Segoe UI", Roboto, Arial, sans-serif;
+      background: linear-gradient(180deg, var(--bg), #eef6f6);
+      color: var(--accent-2);
+      line-height:1.5;
+      -webkit-font-smoothing:antialiased;
+    }
+
+    .container{
+      max-width:var(--max-width);
+      margin:32px auto;
+      padding:20px;
+    }
+
+    header{
+      display:flex;
+      gap:16px;
+      align-items:center;
+      justify-content:space-between;
+      margin-bottom:20px;
+    }
+
+    .brand{
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+
+    .logo{
+      width:64px;
+      height:64px;
+      border-radius:10px;
+      background:var(--accent);
+      display:grid;
+      place-items:center;
+      color:white;
+      font-weight:700;
+      box-shadow:0 6px 18px rgba(0,0,0,0.08);
+    }
+
+    nav a{
+      text-decoration:none;
+      color:var(--accent-2);
+      margin-left:12px;
+      font-weight:600;
+    }
+
+    main{
+      display:grid;
+      grid-template-columns: 1fr 340px;
+      gap:20px;
+      align-items:start;
+    }
+
+    /* Card styling */
+    .card{
+      background:var(--card);
+      padding:18px;
+      border-radius:var(--radius);
+      box-shadow: 0 6px 18px rgba(12, 23, 24, 0.06);
+    }
+
+    h1{margin:0 0 8px 0; font-size:1.6rem}
+    h2{margin:0 0 10px 0; font-size:1.15rem}
+    p{margin:0 0 12px 0; color:var(--muted)}
+
+    .hero-image{
+      width:100%;
+      border-radius:10px;
+      display:block;
+      margin:12px 0 18px 0;
+      max-height:260px;
+      object-fit:cover;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:10px 14px;
+      border-radius:10px;
+      background:var(--accent);
+      color:white;
+      text-decoration:none;
+      font-weight:700;
+      cursor:pointer;
+      border:none;
+      box-shadow:0 6px 14px rgba(43,122,120,0.18);
+    }
+
+    .muted-link{
+      color:var(--muted);
+      text-decoration:none;
+      font-size:0.95rem;
+    }
+
+    /* small form to show inputs */
+    form input, form textarea{
+      width:100%;
+      padding:8px 10px;
+      margin:6px 0 12px 0;
+      border-radius:8px;
+      border:1px solid #e6eef0;
+      font-size:0.95rem;
+    }
+
+    aside .list-item{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      padding:10px;
+      border-radius:8px;
+      margin-bottom:10px;
+    }
+
+    footer{
+      margin-top:22px;
+      text-align:center;
+      color:var(--muted);
+      font-size:0.9rem;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width:880px){
+      main{grid-template-columns: 1fr; }
+      .logo{width:52px;height:52px}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">WP</div>
+        <div>
+          <div style="font-weight:800">Web Practice</div>
+          <div style="font-size:0.85rem;color:var(--muted)">HTML • CSS • JavaScript</div>
+        </div>
+      </div>
+
+      <nav>
+        <a href="#about">About</a>
+        <a href="#project">Project</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Left column: main content -->
+      <section>
+        <article class="card" id="about">
+          <h1>Task 1 — Basics of Web Development</h1>
+          <p>This page demonstrates basic HTML structure, images, links, CSS styling, and simple JavaScript interactivity. Use it as your submission for Task 1.</p>
+
+          <!-- Image -->
+          <img
+            class="hero-image"
+            src="https://via.placeholder.com/900x300.png?text=Web+Development+Task+1"
+            alt="Illustration: web development basics - placeholder image" />
+
+          <h2>What this page contains</h2>
+          <ul>
+            <li>Headings, paragraphs, lists and links</li>
+            <li>Styled layout using CSS (colors, spacing, rounded cards)</li>
+            <li>JavaScript interactivity: alert & DOM update</li>
+          </ul>
+
+          <!-- Button that triggers an alert -->
+          <div style="margin-top:12px">
+            <button class="btn" id="helloBtn">Click me — show alert</button>
+            <span style="margin-left:12px;color:var(--muted)">or</span>
+            <button class="btn" id="changeTextBtn" style="background:#4c9f7a">Change headline</button>
+          </div>
+
+          <h2 style="margin-top:18px">Simple link examples</h2>
+          <p>
+            Visit
+            <a class="muted-link" href="https://developer.mozilla.org/en-US/docs/Learn/HTML" target="_blank" rel="noopener">MDN — HTML docs</a>
+            for learning resources.
+          </p>
+
+          <p>More info: <a href="#contact" class="muted-link">Jump to contact form</a></p>
+        </article>
+
+        <!-- Small project sample: a simple contact form (no backend) -->
+        <article class="card" style="margin-top:18px" id="project">
+          <h2>Demo: Contact form (client-side only)</h2>
+          <p>Enter your name and message. This uses JavaScript validation (required fields).</p>
+
+          <form id="contactForm" onsubmit="return false;">
+            <label for="name">Name</label>
+            <input id="name" type="text" placeholder="Your name" required />
+
+            <label for="email">Email</label>
+            <input id="email" type="email" placeholder="you@example.com" required />
+
+            <label for="message">Message</label>
+            <textarea id="message" rows="4" placeholder="Your message" required></textarea>
+
+            <div style="display:flex;gap:10px;align-items:center">
+              <button id="submitBtn" class="btn" type="submit">Submit</button>
+              <div id="formStatus" style="color:var(--muted); font-size:0.95rem"></div>
+            </div>
+          </form>
+        </article>
+      </section>
+
+      <!-- Right column: aside / secondary content -->
+      <aside>
+        <div class="card">
+          <h2>Quick links</h2>
+          <div class="list-item">
+            <div style="width:44px;height:44px;border-radius:8px;background:#eef8f7;display:grid;place-items:center">1</div>
+            <div>
+              <div style="font-weight:700">HTML Basics</div>
+              <div style="font-size:0.9rem;color:var(--muted)">Tags, structure, doctype</div>
+            </div>
+          </div>
+
+          <div class="list-item">
+            <div style="width:44px;height:44px;border-radius:8px;background:#fff4e6;display:grid;place-items:center">2</div>
+            <div>
+              <div style="font-weight:700">CSS Styling</div>
+              <div style="font-size:0.9rem;color:var(--muted)">Colors, layout, flexbox</div>
+            </div>
+          </div>
+
+          <div class="list-item">
+            <div style="width:44px;height:44px;border-radius:8px;background:#f0f7ff;display:grid;place-items:center">3</div>
+            <div>
+              <div style="font-weight:700">JavaScript</div>
+              <div style="font-size:0.9rem;color:var(--muted)">DOM, events, validation</div>
+            </div>
+          </div>
+
+          <hr style="border:none;border-top:1px solid #f1f4f4;margin:14px 0" />
+          <div style="font-size:0.95rem;color:var(--muted)">
+            <strong>Tip:</strong> To submit, record a short screen video showing your code and add it to LinkedIn & GitHub as instructed in the internship brief.
+          </div>
+        </div>
+      </aside>
+    </main>
+
+    <footer id="contact" class="card" style="margin-top:20px">
+      <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between">
+        <div>
+          <strong>Web Practice</strong><br />
+          <span style="color:var(--muted)">Made for ApexPlanet Task 1</span>
+        </div>
+        <div style="text-align:right">
+          <div><a class="muted-link" href="https://github.com/" target="_blank">GitHub</a> • <a class="muted-link" href="https://www.linkedin.com/" target="_blank">LinkedIn</a></div>
+          <div style="margin-top:8px;color:var(--muted)">© <span id="year"></span> Your Name</div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- JavaScript: alert, DOM updates, and basic validation -->
+  <script>
+    // set current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Button that shows an alert
+    document.getElementById('helloBtn').addEventListener('click', function () {
+      alert('Hello! You clicked the Task 1 alert button. 🎉');
+    });
+
+    // Button to change headline text (simple DOM manipulation)
+    document.getElementById('changeTextBtn').addEventListener('click', function () {
+      const h1 = document.querySelector('article.card h1');
+      if (h1) {
+        h1.textContent = (h1.textContent.includes('Basics')) ? 'Task 1 — Completed ✔' : 'Task 1 — Basics of Web Development';
+      }
+    });
+
+    // Simple client-side form validation + simulated submit
+    document.getElementById('submitBtn').addEventListener('click', function () {
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      const status = document.getElementById('formStatus');
+
+      if (!name || !email || !message) {
+        status.textContent = 'Please fill all fields.';
+        status.style.color = 'crimson';
+        return;
+      }
+
+      // basic email check
+      const emailOK = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      if (!emailOK) {
+        status.textContent = 'Please enter a valid email address.';
+        status.style.color = 'crimson';
+        return;
+      }
+
+      // Simulate successful submit
+      status.style.color = 'green';
+      status.textContent = 'Thanks! (This is a demo — no server connected)';
+      // optionally clear form:
+      setTimeout(() => {
+        document.getElementById('name').value = '';
+        document.getElementById('email').value = '';
+        document.getElementById('message').value = '';
+        status.textContent = '';
+      }, 2000);
+    });
+  </script>
+</body>
+</html>
